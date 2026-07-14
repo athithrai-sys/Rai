@@ -25,10 +25,21 @@ npm run dev
 
 Open http://localhost:3000 — it redirects to `/nl`.
 
-Without Supabase credentials the app serves bundled sample data
-(`lib/sample-data.ts`), so it always runs. All listing queries go through
-`lib/data.ts`; that is the only file that changes when the database takes
-over.
+### Database setup (once per Supabase project)
+
+In the Supabase dashboard → **SQL Editor**, run in order:
+
+1. `supabase/schema.sql` — creates the `listings` table with Row Level
+   Security (public read of active listings only)
+2. `supabase/seed.sql` — inserts the 13 sample listings (safe to re-run)
+
+On Vercel, set `NEXT_PUBLIC_SUPABASE_URL` and
+`NEXT_PUBLIC_SUPABASE_ANON_KEY` as environment variables.
+
+Without Supabase credentials — or if a query fails — the app serves the
+bundled sample data (`lib/sample-data.ts`), so it always runs. All listing
+queries go through `lib/data.ts`; components never talk to the database
+directly.
 
 ## Project layout
 
