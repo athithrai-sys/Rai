@@ -1,35 +1,33 @@
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Listing } from "@/lib/types";
 import Stars from "@/components/ui/Stars";
+import ListingMedia from "./ListingMedia";
 import FavoriteButton from "./FavoriteButton";
 
-export default async function ListingCard({ listing }: { listing: Listing }) {
-  const t = await getTranslations("common");
+// Listing card per prototype: artwork on top, centered stars / name /
+// bold "X€ per Day" below, heart toggle top-right.
+// Deliberately not async so it renders in both server and client trees
+// (the favourites tab filters cards client-side).
+export default function ListingCard({ listing }: { listing: Listing }) {
+  const t = useTranslations("common");
 
   return (
     <Link
       href={`/listings/${listing.id}`}
-      className="block focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 rounded-card"
+      className="block rounded-card focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70"
     >
-      <article className="overflow-hidden rounded-card bg-white shadow-sm">
-        <div className="relative aspect-[4/3] bg-swappo-cream">
-          {/* Placeholder artwork for now; swaps to real photos (next/image +
-              Supabase Storage) when the database is seeded */}
-          <img
-            src={listing.photos[0]}
-            alt={listing.title}
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
+      <article className="overflow-hidden rounded-card bg-white shadow-[0_3px_10px_rgba(0,0,0,0.10)]">
+        <div className="relative h-[130px]">
+          <ListingMedia listing={listing} emojiSize={52} />
           <FavoriteButton listingId={listing.id} />
         </div>
-        <div className="p-3">
+        <div className="px-2.5 pb-3 pt-2 text-center">
           <Stars rating={listing.rating} />
-          <h3 className="mt-1 line-clamp-2 text-sm font-semibold leading-snug">
+          <h3 className="mt-0.5 text-[14.5px] leading-snug">
             {listing.title}
           </h3>
-          <p className="mt-1 text-sm font-bold">
+          <p className="text-[15px] font-extrabold">
             {t("perDay", { price: listing.pricePerDay })}
           </p>
         </div>

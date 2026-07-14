@@ -23,10 +23,20 @@ export interface Listing {
   /** Location privacy: only city + postcode area are ever public */
   city: string;
   postcode: string;
-  /** First photo is the main photo */
+  /**
+   * First photo is the main photo. Empty until real photos live in
+   * Supabase Storage — cards then fall back to the emoji/gradient artwork
+   * below (the prototype's visual style).
+   */
   photos: string[];
+  emoji: string;
+  /** CSS gradient behind the emoji artwork */
+  bg: string;
   rating: number;
   ratingCount: number;
+  /** Display date range the item is available (dd/mm/yyyy) */
+  availableFrom: string;
+  availableTo: string;
   /** null = owner listed anonymously (shown as "Anonieme verhuurder") */
   ownerName: string | null;
 }

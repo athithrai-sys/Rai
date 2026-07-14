@@ -2,13 +2,13 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { CATEGORIES } from "@/lib/types";
 
-// Emoji stand in for the illustrated chip icons until real assets exist.
+// Chip icons per prototype (illustrated icons can replace these later).
 const ICONS: Record<string, string> = {
-  all: "✨",
-  "garden-tools": "🌿",
+  all: "🧰",
+  "garden-tools": "🌱",
   gaming: "🎮",
   "music-instruments": "🎸",
-  furniture: "🛋️",
+  furniture: "🪑",
   others: "➕",
 };
 
@@ -23,7 +23,7 @@ export default async function CategoryChips({
   const chips = ["all", ...CATEGORIES];
 
   return (
-    <div className="scrollbar-none -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1">
+    <div className="mb-4 flex flex-wrap gap-2">
       {chips.map((cat) => {
         const active = selected === cat;
         const params: Record<string, string> = {};
@@ -37,10 +37,8 @@ export default async function CategoryChips({
             replace
             scroll={false}
             aria-current={active ? "true" : undefined}
-            className={`flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              active
-                ? "bg-swappo-ink text-white"
-                : "bg-white text-swappo-ink"
+            className={`flex items-center gap-1.5 rounded-[12px] px-3 py-[9px] text-[13.5px] font-semibold transition-colors ${
+              active ? "bg-[#111] text-white" : "bg-white text-swappo-ink"
             }`}
           >
             <span aria-hidden>{ICONS[cat]}</span>

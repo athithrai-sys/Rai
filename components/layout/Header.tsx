@@ -5,9 +5,10 @@ import { useTranslations } from "next-intl";
 
 const RADIUS_OPTIONS = [1, 2, 5, 10, 25];
 
-// Persistent browse header: avatar · postcode · radius · rental cart.
-// Postcode + radius are display/preference only in Phase 1 (stored locally);
+// Persistent browse header per prototype: bordered avatar · postcode field ·
+// radius dropdown · cart. Postcode + radius are stored locally in Phase 1;
 // they start driving real geo-filtering once listings carry coordinates.
+// Avatar opens the account menu and cart opens checkout in later phases.
 export default function Header() {
   const t = useTranslations("header");
   const [postcode, setPostcode] = useState("3451WD");
@@ -32,15 +33,14 @@ export default function Header() {
   }
 
   return (
-    <header className="flex items-center gap-2 bg-swappo-peach px-4 py-3">
-      {/* Avatar → account menu arrives with auth in Phase 2 */}
+    <header className="flex items-center gap-2.5 bg-swappo-peach px-4 py-3">
       <div
         aria-label={t("profileLabel")}
-        className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/60"
+        className="flex size-[46px] shrink-0 items-center justify-center rounded-full border-[3px] border-white bg-[#2aa79b]"
       >
         <svg
           viewBox="0 0 24 24"
-          className="size-6 text-swappo-ink/60"
+          className="size-6 text-white"
           fill="currentColor"
           aria-hidden
         >
@@ -57,7 +57,7 @@ export default function Header() {
         onChange={(e) => updatePostcode(e.target.value)}
         placeholder={t("postcodePlaceholder")}
         autoComplete="postal-code"
-        className="w-24 rounded-full bg-white px-3 py-2 text-center text-sm font-semibold tracking-wide outline-none focus:ring-2 focus:ring-swappo-orange"
+        className="min-w-0 flex-1 rounded-[10px] bg-white px-3 py-3 text-center text-[15px] font-bold outline-none focus:ring-2 focus:ring-swappo-orange"
       />
 
       <label className="sr-only" htmlFor="radius">
@@ -67,7 +67,7 @@ export default function Header() {
         id="radius"
         value={radius}
         onChange={(e) => updateRadius(Number(e.target.value))}
-        className="rounded-full bg-white px-3 py-2 text-sm font-semibold outline-none focus:ring-2 focus:ring-swappo-orange"
+        className="rounded-[10px] bg-white px-2 py-3 text-[15px] font-bold outline-none focus:ring-2 focus:ring-swappo-orange"
       >
         {RADIUS_OPTIONS.map((km) => (
           <option key={km} value={km}>
@@ -76,22 +76,12 @@ export default function Header() {
         ))}
       </select>
 
-      {/* Rental cart — functional from Phase 3 */}
-      <div className="ml-auto" aria-label={t("cartLabel")}>
-        <svg
-          viewBox="0 0 24 24"
-          className="size-7 text-swappo-ink"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden
-        >
-          <circle cx="9" cy="21" r="1" />
-          <circle cx="20" cy="21" r="1" />
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-        </svg>
+      {/* Rental cart — functional from Phase 3; count badge appears then */}
+      <div
+        aria-label={t("cartLabel")}
+        className="shrink-0 text-[26px] leading-none"
+      >
+        <span aria-hidden>🛒</span>
       </div>
     </header>
   );

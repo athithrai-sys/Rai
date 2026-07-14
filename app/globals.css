@@ -1,30 +1,37 @@
 @import "tailwindcss";
 
 /*
- * Swappo design tokens (from swappo-master-prompt-v2.md).
+ * Swappo design tokens — matched 1:1 to swappo-prototype.jsx (mockups v0.2).
  * Tailwind v4 exposes these as utility classes, e.g. `bg-swappo-orange`,
  * `text-swappo-ink`, `rounded-card`.
  */
 @theme {
   --color-swappo-orange: #ee7218;
-  --color-swappo-orange-dark: #d4630f;
+  --color-swappo-orange-dark: #d9640f;
   --color-swappo-peach: #f0be94;
-  --color-swappo-peach-light: #f7dcc3;
+  --color-swappo-peach-light: #f6d9bd;
   --color-swappo-cream: #faf3ec;
-  --color-swappo-green: #2e9e5b;
-  --color-swappo-green-light: #e3f6e8;
-  --color-swappo-red: #e0402f;
-  --color-swappo-purple: #7b5cd6;
-  --color-swappo-ink: #26201b;
+  --color-swappo-green: #3fa43f;
+  --color-swappo-green-light: #e9f8df;
+  --color-swappo-red: #d93025;
+  --color-swappo-purple: #7c4dff;
+  --color-swappo-grey: #9aa3ae;
+  --color-swappo-ink: #1e1e1e;
+  /* Star ratings + cart count badge */
+  --color-swappo-gold: #e8a33d;
+  --color-swappo-star-off: #d7d7d7;
+  --color-swappo-yellow: #f7d774;
 
-  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: "Poppins", "Nunito", ui-rounded, ui-sans-serif, system-ui,
+    sans-serif;
 
-  /* White surface cards use a 24px radius per the design system */
-  --radius-card: 1.5rem;
+  /* Listing cards use a 22px radius in the mockups */
+  --radius-card: 22px;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-swappo-orange);
+  /* Dark surround behind the phone-width app column (per prototype) */
+  background-color: #3a3a3a;
   color: var(--color-swappo-ink);
 }

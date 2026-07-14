@@ -8,6 +8,7 @@ import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -33,10 +34,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className="min-h-dvh bg-swappo-orange text-swappo-ink antialiased">
+      <body className="min-h-dvh antialiased">
         <NextIntlClientProvider>
-          {/* pb-24 keeps content clear of the fixed bottom nav */}
-          <div className="mx-auto min-h-dvh w-full max-w-md pb-24 md:max-w-3xl lg:max-w-5xl">
+          {/* Phone-width app column on the dark surround, per prototype.
+              pb-24 keeps content clear of the fixed bottom nav. */}
+          <div className="mx-auto min-h-dvh w-full max-w-[430px] bg-swappo-orange pb-24">
             {children}
           </div>
           <BottomNav />

@@ -3,78 +3,36 @@
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 
+// Icon-only bottom nav per prototype: white bar with rounded top corners,
+// emoji icons, inactive tabs greyed out. The inbox unread badge arrives
+// with chat in Phase 3.
 const TABS = [
-  { href: "/", key: "home" },
-  { href: "/map", key: "map" },
-  { href: "/favourites", key: "favourites" },
-  { href: "/inbox", key: "inbox" },
+  { href: "/", key: "home", icon: "🏠" },
+  { href: "/map", key: "map", icon: "📍" },
+  { href: "/favourites", key: "favourites", icon: "❤️" },
+  { href: "/inbox", key: "inbox", icon: "✉️" },
 ] as const;
-
-function TabIcon({ tab, active }: { tab: string; active: boolean }) {
-  const cls = `size-6 ${active ? "text-swappo-orange" : "text-swappo-ink/40"}`;
-  const stroke = {
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 2,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-  } as const;
-
-  switch (tab) {
-    case "home":
-      return (
-        <svg viewBox="0 0 24 24" className={cls} {...stroke} aria-hidden>
-          <path d="M3 10.5 12 3l9 7.5" />
-          <path d="M5 9.5V21h5v-6h4v6h5V9.5" />
-        </svg>
-      );
-    case "map":
-      return (
-        <svg viewBox="0 0 24 24" className={cls} {...stroke} aria-hidden>
-          <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" />
-          <circle cx="12" cy="10" r="2.5" />
-        </svg>
-      );
-    case "favourites":
-      return (
-        <svg viewBox="0 0 24 24" className={cls} {...stroke} aria-hidden>
-          <path d="M12 21C7 16.5 3 13.3 3 9.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9 3.5c0 3.8-4 7-9 11.5Z" />
-        </svg>
-      );
-    default:
-      return (
-        <svg viewBox="0 0 24 24" className={cls} {...stroke} aria-hidden>
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <path d="m3 7 9 6 9-6" />
-        </svg>
-      );
-  }
-}
 
 export default function BottomNav() {
   const t = useTranslations("nav");
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-black/5 bg-white pb-[env(safe-area-inset-bottom)]">
-      <div className="mx-auto flex max-w-md items-stretch justify-around md:max-w-3xl lg:max-w-5xl">
-        {TABS.map(({ href, key }) => {
+    <nav className="fixed bottom-0 left-1/2 z-20 w-full max-w-[430px] -translate-x-1/2">
+      <div className="flex items-center justify-between rounded-t-[18px] bg-white px-[30px] pb-[calc(14px+env(safe-area-inset-bottom))] pt-3.5 shadow-[0_-4px_16px_rgba(0,0,0,0.12)]">
+        {TABS.map(({ href, key, icon }) => {
           const active = pathname === href;
           return (
             <Link
               key={key}
               href={href}
+              aria-label={t(key)}
               aria-current={active ? "page" : undefined}
-              className="flex flex-1 flex-col items-center gap-0.5 py-2.5"
+              className={`text-[26px] leading-none ${
+                active ? "" : "opacity-55 grayscale"
+              }`}
             >
-              <TabIcon tab={key} active={active} />
-              <span
-                className={`text-[11px] font-medium ${
-                  active ? "text-swappo-orange" : "text-swappo-ink/40"
-                }`}
-              >
-                {t(key)}
-              </span>
+              <span aria-hidden>{icon}</span>
             </Link>
           );
         })}

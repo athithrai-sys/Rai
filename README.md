@@ -2,7 +2,8 @@
 
 Peer-to-peer equipment rental marketplace for the Netherlands — rent, lend
 and share tools, instruments, gaming gear and furniture with your
-neighbours. Product spec lives in `swappo-master-prompt-v2.md`.
+neighbours. Product spec lives in `swappo-master-prompt-v2.md`; the visual
+reference is `swappo-prototype.jsx` (design tokens + screen layouts).
 
 ## Stack
 
@@ -35,8 +36,9 @@ over.
 app/[locale]/            locale-aware routes (nl default, en)
   (main)/                screens with the shared peach header
     page.tsx             home / browse (search, chips, 2-col grid)
-    map|favourites|inbox placeholder tabs (later phases)
-  listings/[id]/         listing detail page
+    listings/[id]/       listing detail page
+    favourites/          saved items (localStorage until Phase 2)
+    map|inbox            placeholder tabs (later phases)
 components/
   layout/                Header, BottomNav
   listings/              SearchBar, CategoryChips, ListingCard, …
@@ -44,10 +46,10 @@ components/
 lib/
   data.ts                single data-access point for listings
   sample-data.ts         13 Dutch sample listings (also feeds seeding)
+  favourites.ts          localStorage favourites helpers
   supabase/              browser + server clients (anon key + RLS only)
 messages/                nl.json / en.json UI strings
 i18n/ + proxy.ts         next-intl routing config
-scripts/                 generate-placeholders.mjs (listing artwork)
 ```
 
 ## Build phases

@@ -31,16 +31,16 @@
     "others": "Others"
   },
   "home": {
-    "noResults": "No items found. Try a different search term or category."
+    "noResults": "No items match your search. Try another word or category."
   },
   "listing": {
-    "backToCategory": "Back to other {category} options",
-    "backToAll": "Back to all items",
+    "backTo": "Back to other {category} options",
     "pricePerDay": "Rental price per day: {price}€",
-    "pickupAt": "Available for pick up in {city} ({postcode})",
-    "privacyNote": "The exact address is only shared via chat after the booking is confirmed.",
+    "availableAt": "Available for pick up at",
+    "onDays": "on the following days",
+    "dateRange": "{from} to {to}",
+    "privacyNote": "Exact address is shared in chat after your order is confirmed.",
     "conditionLabel": "Condition",
-    "descriptionLabel": "Description",
     "offeredBy": "Offered by {name}",
     "anonymousOwner": "Anonymous lender",
     "ratingCount": "{count, plural, =1 {1 review} other {# reviews}}",
@@ -51,6 +51,8 @@
     "notFoundCta": "Back to all items"
   },
   "favourites": {
+    "title": "Favourites",
+    "empty": "Tap the ♥ on any item to save it here.",
     "toggleLabel": "Save as favourite"
   },
   "comingSoon": {
