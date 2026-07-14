@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/*
+ * Swappo design tokens (from swappo-master-prompt-v2.md).
+ * Tailwind v4 exposes these as utility classes, e.g. `bg-swappo-orange`,
+ * `text-swappo-ink`, `rounded-card`.
+ */
+@theme {
+  --color-swappo-orange: #ee7218;
+  --color-swappo-orange-dark: #d4630f;
+  --color-swappo-peach: #f0be94;
+  --color-swappo-peach-light: #f7dcc3;
+  --color-swappo-cream: #faf3ec;
+  --color-swappo-green: #2e9e5b;
+  --color-swappo-green-light: #e3f6e8;
+  --color-swappo-red: #e0402f;
+  --color-swappo-purple: #7b5cd6;
+  --color-swappo-ink: #26201b;
+
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* White surface cards use a 24px radius per the design system */
+  --radius-card: 1.5rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-swappo-orange);
+  color: var(--color-swappo-ink);
+}

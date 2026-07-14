@@ -1,0 +1,60 @@
+{
+  "common": {
+    "appName": "Swappo",
+    "tagline": "Rent and share stuff in your neighbourhood",
+    "perDay": "{price}€ per Day"
+  },
+  "header": {
+    "postcodeLabel": "Postcode",
+    "postcodePlaceholder": "3451WD",
+    "radiusLabel": "Radius",
+    "radiusOption": "{km} Kms",
+    "cartLabel": "Rental cart",
+    "profileLabel": "Profile"
+  },
+  "nav": {
+    "home": "Home",
+    "map": "Map",
+    "favourites": "Favourites",
+    "inbox": "Inbox"
+  },
+  "search": {
+    "placeholder": "Search item here",
+    "filterLabel": "Filters"
+  },
+  "categories": {
+    "all": "All items",
+    "garden-tools": "Garden tools",
+    "gaming": "Gaming",
+    "music-instruments": "Music instruments",
+    "furniture": "Furniture",
+    "others": "Others"
+  },
+  "home": {
+    "noResults": "No items found. Try a different search term or category."
+  },
+  "listing": {
+    "backToCategory": "Back to other {category} options",
+    "backToAll": "Back to all items",
+    "pricePerDay": "Rental price per day: {price}€",
+    "pickupAt": "Available for pick up in {city} ({postcode})",
+    "privacyNote": "The exact address is only shared via chat after the booking is confirmed.",
+    "conditionLabel": "Condition",
+    "descriptionLabel": "Description",
+    "offeredBy": "Offered by {name}",
+    "anonymousOwner": "Anonymous lender",
+    "ratingCount": "{count, plural, =1 {1 review} other {# reviews}}",
+    "addToCart": "Add to rental cart",
+    "cartComingSoon": "Booking is coming soon — browse away!",
+    "notFoundTitle": "Item not found",
+    "notFoundBody": "This item does not exist (anymore).",
+    "notFoundCta": "Back to all items"
+  },
+  "favourites": {
+    "toggleLabel": "Save as favourite"
+  },
+  "comingSoon": {
+    "title": "Coming soon",
+    "body": "This part of Swappo arrives in a later phase. You can already browse and search items."
+  }
+}

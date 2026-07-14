@@ -1,0 +1,60 @@
+{
+  "common": {
+    "appName": "Swappo",
+    "tagline": "Huur en deel spullen in jouw buurt",
+    "perDay": "{price}€ per dag"
+  },
+  "header": {
+    "postcodeLabel": "Postcode",
+    "postcodePlaceholder": "3451WD",
+    "radiusLabel": "Straal",
+    "radiusOption": "{km} km",
+    "cartLabel": "Huurmandje",
+    "profileLabel": "Profiel"
+  },
+  "nav": {
+    "home": "Home",
+    "map": "Kaart",
+    "favourites": "Favorieten",
+    "inbox": "Inbox"
+  },
+  "search": {
+    "placeholder": "Zoek een item",
+    "filterLabel": "Filters"
+  },
+  "categories": {
+    "all": "Alle items",
+    "garden-tools": "Tuingereedschap",
+    "gaming": "Gaming",
+    "music-instruments": "Muziekinstrumenten",
+    "furniture": "Meubels",
+    "others": "Overig"
+  },
+  "home": {
+    "noResults": "Geen items gevonden. Probeer een andere zoekterm of categorie."
+  },
+  "listing": {
+    "backToCategory": "Terug naar {category}",
+    "backToAll": "Terug naar alle items",
+    "pricePerDay": "Huurprijs per dag: {price}€",
+    "pickupAt": "Op te halen in {city} ({postcode})",
+    "privacyNote": "Het exacte adres wordt pas via de chat gedeeld nadat de boeking is bevestigd.",
+    "conditionLabel": "Staat",
+    "descriptionLabel": "Omschrijving",
+    "offeredBy": "Aangeboden door {name}",
+    "anonymousOwner": "Anonieme verhuurder",
+    "ratingCount": "{count, plural, =1 {1 beoordeling} other {# beoordelingen}}",
+    "addToCart": "Voeg toe aan huurmandje",
+    "cartComingSoon": "Reserveren kan binnenkort — kijk alvast rond!",
+    "notFoundTitle": "Item niet gevonden",
+    "notFoundBody": "Dit item bestaat niet (meer).",
+    "notFoundCta": "Terug naar alle items"
+  },
+  "favourites": {
+    "toggleLabel": "Bewaar als favoriet"
+  },
+  "comingSoon": {
+    "title": "Binnenkort beschikbaar",
+    "body": "Dit onderdeel van Swappo komt in een volgende fase. Je kunt nu alvast items bekijken en zoeken."
+  }
+}
